@@ -16,6 +16,10 @@ Best Bank project's purpose is practicing CSS principles such as:
         ```
         <div class="account">
             <h3 class="account__heading">Main Account</h3>
-            <p class="account__amount">$6,700.56</p>
+            <p class="account__amount--active">$1,234.56</p>
+        </div>
+        <div class="account">
+            <h3 class="account__heading">Rainy Day Fund</h3>
+            <p class="account__amount">$432.10</p>
         </div>
         ```  
