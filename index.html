@@ -10,11 +10,15 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <header>
-            <a href="#"><img src="assets/bestbank_logo.png" alt="Best Bank logo"></a>
+        <header class="header">
+            <div class="logo">
+                <a class="logo__link" href="#">
+                    <img class="logo__image" src="assets/bestbank_logo.png" alt="Best Bank logo">
+                </a>
+            </div>
             <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="#">Home</a></li>
+                <ul class="nav__list container">
+                    <li class="nav__item"><a class="nav__link nav__link--active" href="#">Home</a></li>
                     <li class="nav__item"><a class="nav__link" href="#">Payments</a></li>
                     <li class="nav__item"><a class="nav__link" href="#">Savings</a></li>
                     <li class="nav__item"><a class="nav__link" href="#">Financing</a></li>
@@ -27,8 +31,8 @@
                 <button class="transact-button-group__button">Pay</button>
                 <button class="transact-button-group__button">Transfer</button>
             </section>
-            <section class="accounts-container" id="accounts-container">
-                <h2 class="accounts-container__heading">Accounts</h2>
+            <section class="accounts container" id="accounts">
+                <h2 class="accounts__heading">Accounts</h2>
                 <div class="account">
                     <h3 class="account__heading">Main Account</h3>
                     <p class="account__amount">$6,700.56</p>
