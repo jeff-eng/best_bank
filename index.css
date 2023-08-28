@@ -11,6 +11,10 @@ DARK ORANGE: #FFA724
 */
 :root {
     --text-color: #000000;
+    --main-bg-color: #FDF7F4;
+    --extra-light-orange: #ffe8c5;
+    --light-orange: #FFD18C;
+    --dark-orange: #FFA724;
 }
 
 html, body {
@@ -18,6 +22,11 @@ html, body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
+    background-color: var(--main-bg-color);
+}
+
+.account:hover, .transact-button-group__button:hover {
+    cursor: pointer;
 }
 
 /* Header styling */
@@ -26,6 +35,7 @@ html, body {
     justify-content: center;
     align-items: center;
     padding: 39px 0;
+    background-color: #FFFFFF;
 }
 
 .logo__link {
@@ -65,13 +75,97 @@ html, body {
 
 .nav__link:hover {
     color: #5E5E5E;
+    border-bottom: 2px solid #5E5E5E;
 }
 
 .nav__link--active {
     font-weight: bold;
 }
 
+/* Buttons styling */
+.transact-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15.73px;
+    margin-top: 33px;
+    margin-bottom: 42px;
+}
+
+.transact-button-group__button {
+    background-color: #FFF;
+    border: 5px solid var(--dark-orange);
+    border-radius: 50px;
+    min-width: 275.275px;
+    min-height: 77px;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: normal;
+    transition: 0.5s;
+}
+
+.transact-button-group__button:hover {
+    background-color: var(--extra-light-orange);
+}
+
+.transact-button-group__button:active {
+    background-color: #FFA724;
+    border: 5px solid var(--light-orange);
+}
+
+/* Main styling */
+main {
+    margin-bottom: 89px;
+}
+
+.accounts {
+    margin: auto;
+}
+
+.accounts__heading {
+    font-size: 2.5rem;
+}
+
+.account {
+    border: 5px solid var(--dark-orange);
+    border-radius: 15px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.account--selected {
+    background-color: #FFD18C;
+}
+
+.account__link {
+    display: flex;
+    text-decoration: none;
+    padding: 43px;
+    color: var(--text-color);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account__link:active {
+    background-color: var(--dark-orange);
+    transition: 0.5s;
+}
+
+.account:hover {
+    background-color: var(--extra-light-orange);
+}
+
+.account__heading, .account__amount {
+    margin: 0;
+}
+
 /* Utility classes */
 .container {
     width: 730px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
 }
