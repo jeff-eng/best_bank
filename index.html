@@ -33,18 +33,26 @@
             </section>
             <section class="accounts container" id="accounts">
                 <h2 class="accounts__heading">Accounts</h2>
-                <div class="account">
-                    <h3 class="account__heading">Main Account</h3>
-                    <p class="account__amount">$6,700.56</p>
-                </div>
-                <div class="account">
-                    <h3 class="account__heading">Expenses</h3>
-                    <p class="account__amount">$5,134.63</p>
-                </div>
-                <div class="account">
-                    <h3 class="account__heading">Savings</h3>
-                    <p class="account__amount">$36,500.12</p>
-                </div>
+                <div class="flex-container" id="accounts-flex-container">
+                    <div class="account account--selected">
+                        <a class="account__link" href="#">
+                            <h3 class="account__heading">Main Account</h3>
+                            <p class="account__amount">$6,700.56</p>
+                        </a>
+                    </div>
+                    <div class="account">
+                        <a class="account__link" href="#">
+                            <h3 class="account__heading">Expenses</h3>
+                            <p class="account__amount">$5,134.63</p>
+                        </a>
+                    </div>
+                    <div class="account">
+                        <a class="account__link" href="#">
+                            <h3 class="account__heading">Savings</h3>
+                            <p class="account__amount">$36,500.12</p>
+                        </a>
+                    </div>
+                </div> 
             </section>
         </main>
         <script src="index.js"></script>
