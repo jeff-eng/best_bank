@@ -1,20 +1,25 @@
 import accounts from './data.js';
 
 document.getElementById('accounts-flex-container').innerHTML = renderAccountsHtml();
-document.getElementById('spending-flex-container').innerHTML = renderSpendingHtml(accounts[0]);
+document.getElementById('spending-flex-container').innerHTML = renderSpendingsHtml(accounts[0]);
 
+// Event listener(s)
 document.addEventListener('click', (event) => {
-    event.preventDefault();
-
     const clickedId = parseInt(event.target.dataset.id);
+    const accountsDivEls = document.getElementsByClassName('account');
+
+    for (const accountsDivEl of accountsDivEls) {
+        accountsDivEl.classList.remove('account--selected');        
+    }
 
     if (clickedId) {
+        document.getElementById(`${clickedId}`).classList.toggle('account--selected');
         const accountObject = accounts.find((account) => account.id === clickedId);
-        document.getElementById('spending-flex-container').innerHTML = renderSpendingHtml(accountObject);
+        document.getElementById('spending-flex-container').innerHTML = renderSpendingsHtml(accountObject);
     }
 });
 
-
+// Functions to render HTML
 function renderAccountsHtml() {
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -25,16 +30,16 @@ function renderAccountsHtml() {
         const { id, title, balance, } = account;
         const acctSelectedClass = title === 'Main Account' ? 'account--selected' : '';
 
-        return `<div class="account ${acctSelectedClass}" data-id=${id}>
-                    <a class="account__link" href="#" data-id=${id}>
+        return `<div class="account ${acctSelectedClass}" data-id=${id} id=${id}>
+                    <article class="account__link" data-id=${id}>
                         <h3 class="account__heading" data-id=${id}>${title}</h3>
                         <p class="account__amount" data-id=${id}>${formatter.format(balance)}</p>
-                    </a>
+                    </article>
                 </div>`;
     }).join('');
 }
 
-function renderSpendingHtml(account) {
+function renderSpendingsHtml(account) {
     const spendings = account.spendings;
     
     if (spendings.length) {
@@ -47,7 +52,6 @@ function renderSpendingHtml(account) {
                     </article>`;
         }).join('');
     } else {
-        return `<p>Nothing to display</p>`;
+        return `<p class="center">No Details Available</p>`;
     }
 }
-
