@@ -1,21 +1,27 @@
 import accounts from './data.js';
 
 document.getElementById('accounts-flex-container').innerHTML = renderAccountsHtml();
-document.getElementById('spending-flex-container').innerHTML = renderSpendingsHtml(accounts[0]);
+document.getElementById('spendings').insertAdjacentHTML('beforeend', renderSpendingsHtml(accounts[0]));
 
 // Event listener(s)
 document.addEventListener('click', (event) => {
     const clickedId = parseInt(event.target.dataset.id);
-    const accountsDivEls = document.getElementsByClassName('account');
-
-    for (const accountsDivEl of accountsDivEls) {
-        accountsDivEl.classList.remove('account--selected');        
-    }
 
     if (clickedId) {
+        const accountsDivEls = document.getElementsByClassName('account');
+
+        // Remove highlighted styling of selected account
+        for (const accountsDivEl of accountsDivEls) {
+            accountsDivEl.classList.remove('account--selected');        
+        }
+
+        // Add back styling to the selected account
         document.getElementById(`${clickedId}`).classList.toggle('account--selected');
+        
+        // Render Spendings Categories
         const accountObject = accounts.find((account) => account.id === clickedId);
-        document.getElementById('spending-flex-container').innerHTML = renderSpendingsHtml(accountObject);
+        const spendingFlexContainer = document.getElementById('spending-flex-container');
+        spendingFlexContainer.innerHTML = renderSpendingsHtml(accountObject);
     }
 });
 
@@ -43,7 +49,7 @@ function renderSpendingsHtml(account) {
     const spendings = account.spendings;
     
     if (spendings.length) {
-        return spendings.map((spendingCategory) => {
+        const spendingsCategoriesHtml = spendings.map((spendingCategory) => {
             const {category, spent} = spendingCategory;
     
             return `<article class="spending-category">
@@ -51,7 +57,9 @@ function renderSpendingsHtml(account) {
                         <p class="spending-category__amount">$${spent}</p>
                     </article>`;
         }).join('');
+
+        return `<div class="spending-container expand" id="spending-flex-container">${spendingsCategoriesHtml}</div>`;
     } else {
-        return `<p class="center">No Details Available</p>`;
+        return '<p class="center">No Details Available</p>';
     }
 }
