@@ -162,7 +162,9 @@ main {
 
 /* Spending */
 .spending-container {
-
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
 }
 
 .spending-category {
@@ -171,18 +173,11 @@ main {
     align-items: center;
     background-color: #FFD18C;
     border-radius: 15px;
+    padding: 0 20px;
+    font-weight: bold;
 }
 
-.spending-category__heading {
-    /* border: 2px solid red; */
-    padding-left: 20px;
-}
-
-.spending-category__amount {
-    padding-right: 20px;
-}
-
-/* Utility classes */
+/* Container classes */
 .nav-container {
     width: 730px;
 }
@@ -192,11 +187,10 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 38px;
-    border: 2px dotted blue;
     margin: 0 10px;
 }
 
-.flex-container {
+.accounts-container {
     display: flex;
     flex-direction: column;
     gap: 11px;
@@ -204,10 +198,23 @@ main {
 
 .main-content-container {
     width: 529px;
-    border: 2px solid red;
     margin: 0;
 }
 
-main {
-    border: 1px dashed purple;
+.accounts-container, .spending-container {
+    margin-top: 19px;
+}
+
+@media (max-width: 500px) {
+    .nav__list {
+        font-size: 1rem;
+    }
+
+    .nav-container {
+        width: 420px;
+    }
+
+    .logo__image {
+        width: 300px;
+    }
 }
