@@ -32,8 +32,31 @@ document.addEventListener('click', (event) => {
         }
 
         spendingsSection.insertAdjacentHTML('beforeend', renderSpendingsHtml(accountObject));
+
+        const spendings = accountObject.spendings.map((spendingItem) => {
+            return parseInt(spendingItem.spent);
+        });
+
+        console.log(spendings);
+
+        const maxVal = Math.max(...spendings);
+        console.log(maxVal);
+
+        spendings.forEach((spendingValue, index) => {
+            console.log(index);
+            const spendingId = `spending-category-${index}`;
+            const percentageAsString = `${calculateSpendingBarPercentageWidth(spendingValue, maxVal)}%`;
+            console.log(percentageAsString);
+            document.getElementById(spendingId).style.width = percentageAsString;
+        });
     }
 });
+
+function calculateSpendingBarPercentageWidth(spendingCatVal, highestVal) {
+    const calculatedPercentage = 33 + ((spendingCatVal / highestVal) * 59);
+    console.log(calculatedPercentage);
+    return calculatedPercentage;
+}
 
 // Functions to render HTML
 function renderAccountsHtml() {
@@ -59,15 +82,15 @@ function renderSpendingsHtml(account) {
     const spendings = account.spendings;
     
     if (spendings.length) {
-        const spendingsCategoriesHtml = spendings.map((spendingsCategory) => {
+        const spendingsCategoriesHtml = spendings.map((spendingsCategory, index) => {
             const {category, spent} = spendingsCategory;
-    
-            return `<article class="spendings-category">
+        
+            return `<article class="spendings-category" id="spending-category-${index}">
                         <h3 class="spendings-category__heading">${category}</h3>
                         <p class="spendings-category__amount">$${spent}</p>
                     </article>`;
         }).join('');
-
+        
         return `<div class="spendings-container expand" id="spendings-flex-container">${spendingsCategoriesHtml}</div>`;
     } else {
         return '<h2 class="center-text" id="no-details-paragraph">No Details Available</h2>';
