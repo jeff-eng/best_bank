@@ -223,6 +223,10 @@ main {
         height: auto;
     }
 
+    75% {
+        width: 105%;
+    }
+
     100% {
         opacity: 1;
         width: 100%;
