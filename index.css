@@ -1,20 +1,11 @@
-/*
-COLOR PALETTE
-
-BLACK: #000000
-
-WHITE: #FFFFFF
-LIGHT: #FDF7F4
-
-ORANGE: #FFD18C
-DARK ORANGE: #FFA724
-*/
 :root {
     --text-color: #000000;
     --main-bg-color: #FDF7F4;
     --extra-light-orange: #ffe8c5;
     --light-orange: #FFD18C;
     --dark-orange: #FFA724;
+    --white: #FFF;
+    --dark-gray: #5E5E5E;
 }
 
 html, body {
@@ -32,10 +23,9 @@ html, body {
 /* Header styling */
 .logo {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    place-content: center;
     padding: 39px 0;
-    background-color: #FFFFFF;
+    background-color: var(--white);
 }
 
 .logo__link {
@@ -48,7 +38,7 @@ html, body {
 
 /* Nav styling */
 .nav {
-    background-color: #FFD18C;
+    background-color: var(--light-orange);
 }
 
 .nav__list {
@@ -70,12 +60,12 @@ html, body {
 }
 
 .nav__link:active {
-    text-shadow: #FFA724 0 0 7px;
+    text-shadow: var(--dark-orange) 0 0 7px;
 }
 
 .nav__link:hover {
-    color: #5E5E5E;
-    border-bottom: 2px solid #5E5E5E;
+    color: var(--dark-gray);
+    border-bottom: 2px solid var(--dark-gray);
 }
 
 .nav__link--active {
@@ -92,10 +82,10 @@ html, body {
 }
 
 .transact-button-group__button {
-    background-color: #FFF;
+    background-color: var(--white);
     border: 5px solid var(--dark-orange);
     border-radius: 50px;
-    min-width: 275.275px;
+    min-width: 275px;
     min-height: 77px;
     font-size: 1.875rem;
     font-weight: 700;
@@ -108,7 +98,7 @@ html, body {
 }
 
 .transact-button-group__button:active {
-    background-color: #FFA724;
+    background-color: var(--dark-orange);
     border: 5px solid var(--light-orange);
 }
 
@@ -135,13 +125,14 @@ main {
 }
 
 .account--selected {
-    background-color: #FFD18C;
+    background-color: var(--light-orange);
 }
 
 .account__link {
     display: flex;
     text-decoration: none;
     padding: 43px 31px;
+
     color: var(--text-color);
     justify-content: space-between;
     align-items: center;
@@ -162,8 +153,6 @@ main {
 
 /* Spendings */
 .spendings-container {
-    display: flex;
-    flex-direction: column;
     gap: 19px;
     width: 0;
     height: auto;
@@ -173,7 +162,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFD18C;
+    background-color: var(--light-orange);
     border-radius: 15px;
     padding: 0 20px;
     font-weight: bold;
@@ -193,8 +182,6 @@ main {
 }
 
 .accounts-container {
-    display: flex;
-    flex-direction: column;
     gap: 11px;
 }
 
@@ -205,6 +192,8 @@ main {
 
 .accounts-container, .spendings-container {
     margin-top: 19px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Utility Classes */
@@ -234,7 +223,11 @@ main {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 743px) {
+    .logo__image {
+        width: 275px;
+    }
+
     .nav__list {
         font-size: 1rem;
     }
@@ -243,7 +236,129 @@ main {
         width: 420px;
     }
 
+    .transact-button-group {
+        display: flex;
+        justify-content: center;
+        gap: 15.73px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .transact-button-group__button {
+        font-size: 1rem;
+        min-width: 175px;
+        min-height: 49px;
+    }
+
+    .sections-container {
+        padding: 20px;
+    }
+
+    .account__heading, .account__amount{
+        font-size: 1.1rem;
+    }
+
+    .accounts__heading, .spendings__heading {
+        font-size: 1.6rem;
+    }
+
+    .account__link {
+        padding: 21px 15px;
+    }
+
+    .spendings-category__heading, .spendings-category__amount {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 442px) {
+    .logo {
+        padding: 30px 0;
+    }
+    
     .logo__image {
-        width: 300px;
+        width: 250px;
+    }
+
+    .nav__list {
+        font-size: 0.8rem;
+    }
+
+    .nav-container {
+        width: 350px;
+    }
+
+    .transact-button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .transact-button-group__button {
+        font-size: 0.9rem;
+        min-width: 140px;
+        min-height: 39.2px;
+    }
+
+    .account__heading, .account__amount{
+        font-size: 1rem;
+    }
+
+    .accounts__heading, .spendings__heading {
+        font-size: 1.5rem;
+    }
+
+    .account__link {
+        padding: 21px 15px;
+    }
+
+    .spendings-category__heading, .spendings-category__amount {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .logo {
+        padding: 25px 0;
+    }
+
+    .logo__image {
+        width: 175px;
+    }
+
+    .nav__list {
+        font-size: 0.7rem;
+    }
+    
+    .nav-container {
+        width: 275px;
+    }
+    
+    .transact-button-group {
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+
+    .transact-button-group__button {
+        font-size: 0.85rem;
+        min-width: 120px;
+        min-height: 33.6px;
+    }
+
+    .account__heading, .account__amount{
+        font-size: 0.8rem;
+    }
+
+    .accounts__heading, .spendings__heading {
+        font-size: 1.3rem;
+    }
+
+    .account__link {
+        padding: 17px 13px;
+    }
+
+    .spendings-category__heading, .spendings-category__amount {
+        font-size: 0.7rem;
     }
 }
