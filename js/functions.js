@@ -19,7 +19,7 @@ function renderSpendingsBars(accounts, clickedAccountId) {
     spendingsByAccount.forEach((spendingAmt, index) => {
         const spendingId = `spending-category-${index}`;
         const percentString = `${calculateSpendingBarPercentageWidth(spendingAmt, maxVal)}%`;
-        document.getElementById(spendingId).style.width = percentString;
+        document.getElementById(spendingId).style.maxWidth = percentString;
     });
 }
 
