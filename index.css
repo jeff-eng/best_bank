@@ -103,6 +103,10 @@ html, body {
 }
 
 /* Main styling */
+h1 {
+    display: none;
+}
+
 main {
     margin-bottom: 89px;
 }
