@@ -294,15 +294,17 @@ main {
 
     .transact-button-group {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         margin-top: 25px;
         margin-bottom: 15px;
+        padding: 0 0.8em;
     }
 
     .transact-button-group__button {
         font-size: 0.9rem;
         min-width: 140px;
         min-height: 39.2px;
+        padding: 1em;
     }
 
     .account__heading, .account__amount{
