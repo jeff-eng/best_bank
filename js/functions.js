@@ -64,7 +64,7 @@ function generateSpendingsHtml(account) {
         
         return `<div class="spendings-container expand" id="spendings-flex-container">${spendingsCategoriesHtml}</div>`;
     } else {
-        return '<h2 class="center-text" id="no-details-heading">No Details Available</h2>';
+        return '<p class="center-text no-details-heading" id="no-details-heading">No Details Available</p>';
     }
 }
 
