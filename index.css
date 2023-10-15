@@ -16,6 +16,10 @@ html, body {
     background-color: var(--main-bg-color);
 }
 
+button {
+    color: var(--text-color);
+}
+
 .account:hover, .transact-button-group__button:hover {
     cursor: pointer;
 }
@@ -100,6 +104,10 @@ html, body {
 .transact-button-group__button:active {
     background-color: var(--dark-orange);
     border: 5px solid var(--light-orange);
+}
+
+.no-details-heading {
+    font-size: 1rem;
 }
 
 /* Main styling */
