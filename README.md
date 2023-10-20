@@ -20,6 +20,7 @@ Best Bank is a static web page to practice CSS and JavaScript principles.
 ![project screenshot full width](/assets/screenshot@full-width.png)
 ![project screenshot tablet width](/assets/screenshot@max-width743.png)
 ![project screenshot mobile width](/assets/screenshot@max-width370.png)
+![project screenshot animation](/assets/best-bank-animation.gif)
 
 ## Conventions
 * BEM (Block__Element--Modifier) naming convention for CSS classes
